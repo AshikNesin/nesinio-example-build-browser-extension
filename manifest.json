@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "Favicon Customizer for Slack",
+    "version": "0.0.1",
+    "icons": {
+        "128": "src/assets/icons8-slack-40.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://app.slack.com/*"
+            ],
+            "js": [
+                "src/content.js"
+            ],
+            "run_at": "document_end"
+        }
+    ]
+}
