@@ -20,9 +20,12 @@ const observer = new MutationObserver((mutations) => {
     });
 });
 
-setTimeout(() => {
+const intervalId = setInterval(() => {
     element = document.head.querySelector('[rel="shortcut icon"]');
-    const config = { attributes: true };
-    observer.observe(element, config);
-    changeFavicon()
-}, 5000)
+    if (element) {
+        const config = { attributes: true };
+        observer.observe(element, config);
+        changeFavicon()
+        clearInterval(intervalId)
+    }
+}, 1000)
